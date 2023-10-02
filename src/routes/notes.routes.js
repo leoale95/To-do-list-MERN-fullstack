@@ -1,13 +1,16 @@
-const {Router} = require('express')
-const router = Router() 
+const express = require("express");
+const router = express.Router(); 
 
-router.route('/')
-    .get((req, res) => res.send('User routes'))
-    .post((req, res) => res.send('User routes'))
+const {  getNotes,  createNote,  getNote,  deleteNote,  updateNote,} = require('../controllers/note.controller.js')
 
-router.route('/:id')
-    .get((req, res) => res.send('User routes'))
-    .put((req, res) => res.send('User routes'))
-    .delete((req, res) => res.send('User routes'))
+router.get("/notes", getNotes);
 
-module.exports = router
+router.post("/notes", createNote);
+
+router.get("/notes/:id", getNote);
+
+router.delete("/notes/:id", deleteNote);
+
+router.put("/notes/:id", updateNote);
+
+module.exports = router; 

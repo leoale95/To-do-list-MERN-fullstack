@@ -13,6 +13,6 @@ app.use(express.json())
 
 //Routes
 app.use('/api/users', UserRoutes)
-app.use('api/notes', NotesRoutes)
+app.use('/api/notes', NotesRoutes)
 
 module.exports = app
